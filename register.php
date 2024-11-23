@@ -1,9 +1,15 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
-    $password = ($_POST['passwords']);
+    $password = password_hash($_POST['passwords'], PASSWORD_BCRYPT);
 
-    $conn = new mysqli("localhost", "root", "", "quiz_db");
+    $host = 'localhost';    
+    $user = 'root';
+    $pass = '';
+    $dbname = 'quiz_db';  
+    $port = 3307;
+ 
+    $conn = new mysqli($host, $user, $pass, $dbname, $port);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
