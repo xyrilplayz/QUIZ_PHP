@@ -1,5 +1,11 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "quiz_db");
+$host = 'localhost';    
+$user = 'root';
+$pass = '';
+$dbname = 'quiz_db';  
+$port = 3307;
+
+$conn = new mysqli($host, $user, $pass, $dbname, $port);
 
 $result = $conn->query("
     SELECT u.username, s.score, s.quiz_date
