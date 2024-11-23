@@ -43,7 +43,19 @@ $result = $conn->query("SELECT * FROM questions");
 
 <!DOCTYPE html>
 <html>
-<head><title>Quiz</title></head>
+<head>
+    <title>Quiz</title>
+</head>
+<style>
+    body
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+    }
+</style>
 <body>
 <form method="post">
     <?php while ($row = $result->fetch_assoc()): ?>
