@@ -3,15 +3,20 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = $_POST['passwords'];
 
-    $conn = new mysqli("localhost", "root", "", "quiz_db");
-
+    $host = 'localhost';    
+    $user = 'root';
+    $pass = '';
+    $dbname = 'quiz_db';  
+    $port = 3307;
+    
+    $conn = new mysqli($host, $user, $pass, $dbname, $port);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT id, passwords FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->bind_result($user_id, $hashed_password);
@@ -28,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn->close();
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -60,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="text" name="username" id="username" required><br>
         <br>
         <label for="password">Password</label><br>
-        <input type="password" name="password" id="password" required><br>
+        <input type="password" name="passwords" id="password" required><br>
         <br>
         <button type="submit">Login</button>
     </form>
