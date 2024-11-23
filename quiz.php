@@ -5,7 +5,13 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$conn = new mysqli("localhost", "root", "", "quiz_db");
+$host = 'localhost';    
+$user = 'root';
+$pass = '';
+$dbname = 'quiz_db';  
+$port = 3307;
+
+$conn = new mysqli($host, $user, $pass, $dbname, $port);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $score = 0;
