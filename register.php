@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $password = ($_POST['passwords']);
 
     $conn = new mysqli("localhost", "root", "", "quiz_db");
 
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (username, passwords) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $password);
 
     if ($stmt->execute()) {
@@ -53,8 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="username">Username</label><br>
         <input type="text" name="username" id="username" required><br>
         <br>
-        <label for="password">Password</label><br>
-        <input type="password" name="password" id="password" required><br>
+        <label for="passwords">Password</label><br>
+        <input type="password" name="passwords" id="passwords" required><br>
         <br>
         <button type="submit">Register</button>
     </form>
