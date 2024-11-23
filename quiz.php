@@ -1,4 +1,39 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
 
+$conn = new mysqli("localhost", "root", "", "quiz_db");
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $score = 0;
+
+    foreach ($_POST as $question_id => $answer) {
+        $stmt = $conn->prepare("SELECT correct_answer FROM questions WHERE id = ?");
+        $stmt->bind_param("i", $question_id);
+        $stmt->execute();
+        $stmt->bind_result($correct_answer);
+        $stmt->fetch();
+
+        if ($correct_answer == $answer) {
+            $score++;
+        }
+        $stmt->close();
+    }
+
+    $stmt = $conn->prepare("INSERT INTO scores (user_id, score) VALUES (?, ?)");
+    $stmt->bind_param("ii", $_SESSION['user_id'], $score);
+    $stmt->execute();
+
+    echo "<h2>Your Score: $score</h2>";
+    echo '<a href="leaderboard.php">View Leaderboard</a>';
+    exit;
+}
+
+$result = $conn->query("SELECT * FROM questions");
+?>
 
 <!DOCTYPE html>
 <html>
