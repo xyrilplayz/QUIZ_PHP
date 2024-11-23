@@ -1,5 +1,11 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "quiz_db");
+    $host = 'localhost';    
+    $user = 'root';
+    $pass = '';
+    $dbname = 'quiz_db';  
+    $port = 3307;
+ 
+    $conn = new mysqli($host, $user, $pass, $dbname, $port);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -47,13 +53,13 @@ $questions = [
         "answer" => 0
     ],
     [
-        "question" => "what does this code Show echo. I Love PHP?",
+        "question" => "What does this code Show echo. I Love PHP?",
         "options" => json_encode(["echo. I Love PHP", "I Love PHP", "echo ILovePHP", "ILovePHP"]),
         "answer" => 1
     ],
     [
-        "question" => "What is the best PHP Syntax?",
-        "options" => json_encode(["<?PHP?>", "<php?>", "<?php?>", "<?php>"]),
+        "question" => "What does this code Show echo .br;?",
+        "options" => json_encode(["False", ".br", "Syntax Error", "br"]),
         "answer" => 2
     ]
 
