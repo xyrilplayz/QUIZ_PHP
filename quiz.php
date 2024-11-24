@@ -62,4 +62,10 @@ $result = $conn->query("SELECT * FROM questions");
     <button type="submit">Submit</button>
 </form>
 </body>
+<script>
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+</script>
+
 </html>

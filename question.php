@@ -13,54 +13,54 @@ if ($conn->connect_error) {
 
 $questions = [
     [
-        "question" => "What does PHP stand for?",
-        "options" => json_encode(["Personal Home Page", "Private Home Page", "PHP: Hypertext Preprocessor", "Public Hypertext Preprocessor"]),
+        "question" => "What 1 + 1",
+        "options" => json_encode(["0", "11", "2", "5"]),
         "answer" => 2
     ],
     [
-        "question" => "Which symbol is used to access a property of an object in PHP?",
-        "options" => json_encode([".", "->", "::", "#"]),
-        "answer" => 1
+        "question" => "Which symbol is used for multiplication?",
+        "options" => json_encode(["&", "#", ":", "*"]),
+        "answer" => 3
     ],
     [
-        "question" => "Which function is used to include a file in PHP?",
-        "options" => json_encode(["include()", "require()", "import()", "load()"]),
+        "question" => "What is 2^4",
+        "options" => json_encode(["16", "24", "32", "8"]),
         "answer" => 0
     ],
     [
-        "question" => "What is the equivalent of (print in pyhton) in PHP?",
-        "options" => json_encode(["print", "echo", "Console.wwriteline", "Show"]),
+        "question" => "What is the answer for this problem? (5-3)(4-3)",
+        "options" => json_encode(["0", "1", "56", "12"]),
         "answer" => 1
     ],
     [
-        "question" => "What are the symbol of single line comment for PHP?",
-        "options" => json_encode(["com.(),<--", "comment,-->", "//,#", "<--,-->"]),
-        "answer" => 2
-    ],
-    [
-        "question" => "What is the symbol of Multi line comment for PHP?",
-        "options" => json_encode(["com.()", "/*", "//", "<---->"]),
+        "question" => "What is the symbol for division?",
+        "options" => json_encode(["//", "÷", "**", "+"]),
         "answer" => 1
     ],
     [
-        "question" => "Can PHP be use in Offline?",
+        "question" => "What is the symbol for addition?",
+        "options" => json_encode(["//", "÷", "**", "+"]),
+        "answer" => 3
+    ],
+    [
+        "question" => "Can Math be used in our everyday life?",
         "options" => json_encode(["True","False"]),
         "answer" => 0
     ],
     [
-        "question" => "Is PHP case Sensitive?",
+        "question" => "Is math a Helpful creation?",
         "options" => json_encode(["True","False"]),
         "answer" => 0
     ],
     [
-        "question" => "What does this code Show echo. I Love PHP?",
-        "options" => json_encode(["echo. I Love PHP", "I Love PHP", "echo ILovePHP", "ILovePHP"]),
-        "answer" => 1
+        "question" => "What is the Symbol for subtraction?",
+        "options" => json_encode(["//", "÷", "-", "+"]),
+        "answer" => 2
     ],
     [
-        "question" => "What does this code Show echo .br;?",
-        "options" => json_encode(["False", ".br", "Syntax Error", "br"]),
-        "answer" => 2
+        "question" => "What is 12x12?",
+        "options" => json_encode(["False", "144", "124", "124"]),
+        "answer" => 1
     ]
 
     
